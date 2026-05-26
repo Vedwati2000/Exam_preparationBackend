@@ -9,8 +9,15 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin :"https://vedwati2000.github.io/Exam_preparation/"
+  origin: [
+    "http://127.0.0.1:5500",
+    "http://localhost:3000",
+    "https://dashing-taiyaki-17d773.netlify.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
+
 app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/chat', chatRoutes);
